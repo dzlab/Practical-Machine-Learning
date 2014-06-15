@@ -55,6 +55,7 @@ preProc <- preProcess(log10(training[, -58]+1), method="pca", pcaComp=2)
 # create training prediction 
 trainPC <- predict(preProc, log10(training[, -58]+1))
 # relate the trainng variable 'training$type' to the principal components 'trainPC'
+# the ~ separates the outcome from the predictors
 modelFit <- train(training$type ~ ., method="glm", data=trainPC)
 
 # 13. Preprocessing with PCA
